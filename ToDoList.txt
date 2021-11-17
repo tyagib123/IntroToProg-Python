@@ -1,0 +1,3 @@
+Lamp,$60
+Doll,$40
+Chair,$1400
