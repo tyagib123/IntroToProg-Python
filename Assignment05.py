@@ -20,14 +20,14 @@ strChoice = ""  # A Capture the user option selection
 # -- Processing -- #
 # Step 1 - When the program starts, load the any data you have
 # in a text file called ToDoList.txt into a python list of dictionaries rows (like Lab 5-2)
-objFile = open("ToDoList.txt", "r")
-for strData in objFile:
-    Task, Priority = strData.rstrip('\n').split(',')  # rstrip() will remove the newline character from the right side.
-    dicRow[Task] = Priority
-objFile.close()
-for line in dicRow.items():
-    lstRow = ({line[0] + ':' + line[1]})
-    lstTable.append(lstRow)
+objFile = open("ToDoList.txt", "r") # Opening a text file in read mode
+for strData in objFile: # Iterating row by row in a text file
+    Task, Priority = strData.rstrip('\n').split(',')  # splitting the columns data at ',' using split. rstrip() will remove the newline character from the right side
+    dicRow[Task] = Priority  # adding the task and priority columns data as key and value pairs in dicRow dictionary
+objFile.close() # closing the file using close()
+for line in dicRow.items():  # Iterating through the key, value pairs in dictRow 
+    lstRow = ({line[0] + ':' + line[1]}) 
+    lstTable.append(lstRow) # Appending the key,value in lstTable list
 
 
 # Input/Output -- #
@@ -51,15 +51,15 @@ while True:
 
     # Step 4 - Add a new item to the list/Table
     elif strChoice.strip() == '2':
-        task = input("Enter new item")
-        priority = input("Enter new price of an item")
-        lstRow = ({task.lstrip(' ') + ':' + priority.lstrip(' ')})
+        task = input("Enter new item") # Taking name of an item in task variable
+        priority = input("Enter new price of an item") # Taking price of an item in priority variable
+        lstRow = ({task.lstrip(' ') + ':' + priority.lstrip(' ')}) 
         lstTable.append(lstRow)
         continue
 
     # Step 5 - Remove a new item from the list/Table
     elif strChoice.strip() == '3':
-        removeItem = int(input("Provide the index of the element you want to remove from the list"))
+        removeItem = int(input("Provide the index of the element you want to remove from the list")) # Taking index as user input from where user wants to remove the complete row 
         lstTable.pop(removeItem)
         continue
 
