@@ -53,6 +53,7 @@ while True:
         priority = input("Enter new price of an item")  # Taking price of an item as user input
         lstRow = ({"Task": task.strip(), "Priority": priority.strip()})  # Creating new row with both inputs
         lstTable.append(lstRow)  # Adding both as a new row in the list
+        print(lstTable) # Printing the list again once the new row has been added in the list
         continue
 
     # Step 5 - Remove a new item from the list/Table
@@ -62,6 +63,7 @@ while True:
             if row['Task'].lower() == removeItem.lower():  # Comparing if the key is equal to the user input
                 lstTable.remove(row)  # Removing row from the list
                 print("Item is removed from the list")
+                print(lstTable)  # Printing the list again once the item is removed
         continue
 
     # Step 6 - Save tasks to the ToDoToDoList.txt file
@@ -70,6 +72,7 @@ while True:
         for row in lstTable:  # Iterating through the list
             openFile.write(row['Task'] + ',' + row['Priority'] + '\n')  # Writing the data row by row in the file
         openFile.close()
+        print("Data saved to file!")
         continue
 
     # Step 7 - Exit program
